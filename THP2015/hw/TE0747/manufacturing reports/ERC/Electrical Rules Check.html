@@ -1,0 +1,593 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+        h1, h2, h3, h4, h5, h6 { 
+            font-family : sans-serif;
+            color : white;
+            background-color : #21489e;
+            padding: 0.3em;
+        }
+        body { 
+            font-family : verdana;
+        }
+        td, th {  
+            padding: 0.5em;
+            text-align : center;
+            width : 18%;    
+        }
+        th { 
+            background-color : #A6CAF0;
+        
+        }
+        th.column1, td.column1 { 
+            text-align: left;
+            width : auto; 
+        }
+        table { 
+            width : 100%; 
+        }
+        .front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3 {
+            padding-top : 0.1em;
+            padding-bottom : 0.1em;
+            border : 0px solid black;
+            width : auto;
+            vertical-align: top
+        }
+        .front_matter_column1 {
+            text-align : right;
+        }
+        .total_column1, .total_column {
+            font-weight : bold; 
+        }
+        .total_column1 {
+            text-align : right;
+        }
+        .front_matter_column2 {
+            text-align : center;
+        }
+        .front_matter_column3 {
+            text-align : left;
+        }
+        .warning, .error { 
+            color : red;
+            font-weight : bold;
+        }   
+        tr.onmouseout_odd { 
+            background-color : #EEEEE0 
+        }
+        tr.onmouseout_even { 
+            background-color : #F3F3E3   
+        }
+        tr.onmouseover_odd, tr.onmouseover_even { 
+            background-color : lightYellow 
+        } 
+        a:link, a:visited, .q a:link,.q a:active,.q {
+            color: #21489e; 
+        }
+        a:link.callback, a:visited.callback { 
+            color: #008000 
+        }
+        p.contents_level1 {
+            font-weight : bold;
+            font-size : 110%;
+            margin : 0.5em;
+        }
+        p.contents_level2 {
+            position : relative;
+            left : 20px;
+            margin : 0.5em;
+        }
+    </style><script type="text/javascript">
+        function coordToMils(coord) {
+            var number = coord / 10000;
+            
+            if (number != number.toFixed(3))
+                number = number.toFixed(3);
+            
+            return number + 'mil'
+        }
+
+        function coordToMM(coord) {
+            var number = 0.0254 * coord / 10000;
+            
+            if (number != number.toFixed(4))
+                number = number.toFixed(4);
+            
+            return number + 'mm'
+        }
+    
+        function convertCoord(coordNode, units) {
+            for (var i = 0; i < coordNode.childNodes.length; i++) {
+                coordNode.removeChild(coordNode.childNodes[i]);     
+            }
+
+            var coord = coordNode.getAttribute('value');
+            if (coord != null) {
+                if (units == 'mm') {    
+                    textNode = document.createTextNode(coordToMM(coord));
+                    coordNode.appendChild(textNode);
+                } else if (units == 'mil') {
+                    textNode = document.createTextNode(coordToMils(coord));     
+                    coordNode.appendChild(textNode);    
+                }
+            }
+        }
+    
+        function convertUnits(unitNode, units) {
+            for (var i = 0; i < unitNode.childNodes.length; i++) {
+                unitNode.removeChild(unitNode.childNodes[i]);       
+            }
+        
+            textNode = document.createTextNode(units); 
+            unitNode.appendChild(textNode);
+        }
+    
+        function changeUnits(radio_input, units) {
+            if (radio_input.checked) {
+            
+                var elements = document.getElementsByName('coordinate');
+                if (elements) {
+                    for (var i = 0; i < elements.length; i++) {
+                        convertCoord(elements[i], units);
+                    }
+                }
+    
+                var elements = document.getElementsByName('units');
+                if (elements) {
+                    for (var i = 0; i < elements.length; i++) {
+                        convertUnits(elements[i], units);
+                    }
+                }
+            }
+        }   
+    </script></head>
+<body onload=""><img ALT="Altium" src="
+            file://C:\Users\Public\Documents\Altium\AD14.3\Templates\AD-rgb_logo_223x64.gif
+        "><h1>Electrical Rule Check Report</h1>
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">8/13/2015</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">11:38:55 AM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3"><a href="file:///B:\micromodules\TE0747\current\hw\pcb\manufacturing reports\ERC\Electrical Rules Check.html" class="file"><acronym title="B:\micromodules\TE0747\current\hw\pcb\manufacturing reports\ERC\Electrical Rules Check.html">B:\micromodules\TE0747\current\hw\pcb\manufacturing reports\ERC\Electrical Rules Check.html</acronym></a></td>
+</tr>
+</table>
+<hr><a name="IDARAMQEB"><table>
+<tr></tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%; font-size: 120%; font-weight: Bold; background-color: #A6CAF0" class="column1">Class</td>
+<td style="width: 35%; font-size: 120%; font-weight: Bold; background-color: #A6CAF0" class="column2">Document</td>
+<td style="width: 50%; font-size: 120%; font-weight: Bold; background-color: #A6CAF0" class="column3">Message</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">Error</td>
+<td style="width: 35%" class="column2">TE0747.SchDoc</td>
+<td style="width: 50%" class="column3">GND contains Output Pin and Power Pin objects (Pin U5-2,Pin U9-4,Pin U3-4,Pin CN2-6,Pin U4-8,Pin U1-A1,Pin U1-A2,Pin U1-A3,Pin U1-A5,Pin U1-A7,Pin U1-A9,Pin U1-A19,Pin U1-B1,Pin U1-B2,Pin U1-B3,Pin U1-B5,Pin U1-B7,Pin U1-B9,Pin U1-B14,Pin U1-C1,Pin U1-C2,Pin U1-C3,Pin U1-C4,Pin U1-C5,Pin U1-C6,Pin U1-C10,Pin U1-C12,Pin U1-C19,Pin U1-D1,Pin U1-D2,Pin U2-D2,Pin U1-D3,Pin U1-E1,Pin U1-E2,Pin U1-E3,Pin U1-E17,Pin U1-F1,Pin U1-F2,Pin U1-F3,Pin U1-F19,Pin U1-G1,Pin U1-G7,Pin U1-G8,Pin U1-G9,Pin U1-G11,Pin U1-H7,Pin U1-H8,Pin U1-H9,Pin U1-H11,Pin U1-H12,Pin U1-H18,Pin U1-J8,Pin U1-J9,Pin U1-J11,Pin U1-J12,Pin U1-K8,Pin U1-L8,Pin U1-L9,Pin U1-L11,Pin U1-L19,Pin U1-M9,Pin U1-M13,Pin U1-N9,Pin U1-N12,Pin U1-N13,Pin U1-P2,Pin U1-T19,Pin U1-U6,Pin U1-U9,Pin U1-V18,Pin U1-W1,Pin U1-W12)</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">Error</td>
+<td style="width: 35%" class="column2">TE0747.SchDoc</td>
+<td style="width: 50%" class="column3">Net GND contains multiple Output Pins (Pin U1-A2,Pin U1-B2,Pin U1-D1,Pin U1-D2)</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">Error</td>
+<td style="width: 35%" class="column2">FPGA_CFG.SchDoc</td>
+<td style="width: 50%" class="column3">Net NetU1_A12 contains floating input pins (Pin U1-A12)</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Net NetU1_A12 has only one pin (Pin U1-A12)</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Net NetU1_B18 has only one pin (Pin U1-B18)</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Net NetU1_T1 has only one pin (Pin U1-T1)</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Net NetU1_V3 has only one pin (Pin U1-V3)</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Net NetU1_W2 has only one pin (Pin U1-W2)</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Net NetU1_W4 has only one pin (Pin U1-W4)</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">Error</td>
+<td style="width: 35%" class="column2">FPGA_CFG.SchDoc</td>
+<td style="width: 50%" class="column3">Net SPI_SCK contains floating input pins (Pin U1-C11,Pin U2-C1)</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">Warning</td>
+<td style="width: 35%" class="column2">FPGA_CFG.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-A12 at 750,520</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-B18 at 540,150</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-D17 at 580,660</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B34_B35.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-G2 at 670,590</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B34_B35.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-G3 at 670,600</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-G17 at 230,480</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-G19 at 230,500</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B34_B35.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-H1 at 670,560</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B34_B35.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-H2 at 670,580</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B34_B35.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-H3 at 670,670</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-H17 at 230,490</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-H19 at 230,510</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B34_B35.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-J1 at 670,550</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B34_B35.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-J2 at 670,570</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B34_B35.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-J3 at 970,600</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B34_B35.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-J7 at 670,660</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-J17 at 230,440</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-J18 at 230,430</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-J19 at 230,460</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B34_B35.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-K1 at 670,650</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B34_B35.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-K2 at 670,540</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B34_B35.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-K3 at 970,590</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B34_B35.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-K7 at 670,640</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-K17 at 230,330</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-K18 at 230,410</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B34_B35.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-L1 at 670,520</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B34_B35.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-L2 at 670,530</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B34_B35.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-L3 at 970,580</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B34_B35.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-L7 at 670,630</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-L17 at 230,340</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-L18 at 230,420</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B34_B35.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-M1 at 970,550</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B34_B35.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-M2 at 970,560</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B34_B35.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-M3 at 970,570</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B34_B35.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-M7 at 670,620</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-M18 at 230,360</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-M19 at 230,350</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B34_B35.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-N1 at 970,530</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B34_B35.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-N2 at 970,540</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B34_B35.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-N3 at 970,520</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-N18 at 230,400</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-N19 at 230,390</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B34_B35.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-P1 at 970,660</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B34_B35.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-P3 at 970,510</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-P17 at 580,560</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-P18 at 580,550</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-P19 at 230,380</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-R18 at 580,540</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-R19 at 230,370</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B34_B35.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-T1 at 130,560</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B34_B35.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-T3 at 130,570</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-T17 at 580,490</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-T18 at 580,480</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B34_B35.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-U3 at 130,490</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-U14 at 580,620</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-U15 at 580,360</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-U16 at 580,350</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-U17 at 580,470</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-U19 at 580,530</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B34_B35.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-V3 at 130,520</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B34_B35.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-V4 at 130,460</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B34_B35.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-V5 at 400,550</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-V15 at 580,400</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-V16 at 580,440</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-V17 at 580,430</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-V19 at 580,520</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B34_B35.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-W2 at 130,530</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B34_B35.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-W4 at 130,440</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B34_B35.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-W6 at 400,590</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-W15 at 580,390</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-W16 at 580,420</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-W17 at 580,410</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-W18 at 580,510</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width: 15%" class="column1">No Report</td>
+<td style="width: 35%" class="column2">FPGA_B14_B16.SchDoc</td>
+<td style="width: 50%" class="column3">Unconnected Pin U1-W19 at 580,500</td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br></body>
+</html>

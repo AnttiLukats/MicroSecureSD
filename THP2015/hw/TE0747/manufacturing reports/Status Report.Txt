@@ -1,0 +1,12 @@
+Output: LP0747-01
+Type  : NC Drill
+From  : PCB Document [TE0747.PcbDoc]
+   Generated File[LP0747-01.TXT]
+   Generated File[LP0747-01.LDP]
+   Generated File[LP0747-01.DRR]
+
+
+Files Generated   : 3
+Documents Printed : 0
+
+Finished Output Generation At 11:39:01 AM On 8/13/2015

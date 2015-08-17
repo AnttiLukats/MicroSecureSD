@@ -1,0 +1,275 @@
+*************************************************************
+FileName = LP0747-01.GBR
+AutoAperture = True
+*************************************************************
+Generating : Top Layer
+      File : LP0747-01.GTL
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Mechanical 6
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D10
+    D11
+    D12
+    D13
+    D14
+    D15
+    D16
+    D17
+    D18
+    D19
+    D20
+*************************************************************
+
+*************************************************************
+Generating : Signal Layer 2
+      File : LP0747-01.G1
+
+    Adding Layer      : Signal Layer 2
+
+    Adding Layer      : Mechanical 6
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D19
+    D20
+    D21
+*************************************************************
+
+*************************************************************
+Generating : Signal Layer 3
+      File : LP0747-01.G2
+
+    Adding Layer      : Signal Layer 3
+
+    Adding Layer      : Mechanical 6
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D19
+    D20
+    D21
+*************************************************************
+
+*************************************************************
+Generating : Bottom Layer
+      File : LP0747-01.GBL
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Mechanical 6
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D10
+    D15
+    D16
+    D17
+    D19
+    D20
+    D22
+    D23
+    D24
+    D25
+    D26
+    D27
+    D28
+    D29
+    D30
+    D31
+    D32
+    D33
+    D34
+*************************************************************
+
+*************************************************************
+Generating : Top Paste
+      File : LP0747-01.GTP
+
+    Adding Layer      : Top Paste
+
+    Adding Layer      : Mechanical 6
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D10
+    D11
+    D12
+    D13
+    D14
+    D15
+    D19
+*************************************************************
+
+*************************************************************
+Generating : Top Solder
+      File : LP0747-01.GTS
+
+    Adding Layer      : Top Solder
+
+    Adding Layer      : Mechanical 6
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D19
+    D35
+    D36
+    D37
+    D38
+    D39
+    D40
+    D41
+    D42
+    D43
+    D44
+    D45
+    D46
+*************************************************************
+
+*************************************************************
+Generating : Bottom Solder
+      File : LP0747-01.GBS
+
+    Adding Layer      : Bottom Solder
+
+    Adding Layer      : Mechanical 6
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D19
+    D35
+    D41
+    D46
+    D47
+    D48
+    D49
+    D50
+    D51
+    D52
+    D53
+    D54
+    D55
+    D56
+    D57
+    D58
+    D59
+    D60
+    D61
+    D62
+    D63
+    D64
+    D65
+*************************************************************
+
+*************************************************************
+Generating : Bottom Paste
+      File : LP0747-01.GBP
+
+    Adding Layer      : Bottom Paste
+
+    Adding Layer      : Mechanical 6
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D10
+    D15
+    D19
+    D22
+    D23
+    D24
+    D25
+    D26
+    D27
+    D28
+    D29
+    D30
+    D31
+    D32
+    D33
+*************************************************************
+
+*************************************************************
+Generating : Mechanical 5
+      File : LP0747-01.GM5
+
+    Adding Layer      : Mechanical 5
+
+    Adding Layer      : Mechanical 6
+
+
+Used DCodes :
+    D19
+*************************************************************
+
+*************************************************************
+Generating : Mechanical 6
+      File : LP0747-01.GM6
+
+    Adding Layer      : Mechanical 6
+
+    Adding Layer      : Mechanical 6
+
+
+Used DCodes :
+    D19
+*************************************************************
+
+*************************************************************
+Generating : Drill Drawing
+      File : LP0747-01.GD1
+
+    Adding Layer      : Mechanical 6
+
+    Adding Drill Pair : Top Layer-Bottom Layer
+
+    Adding Layer      : Drill Drawing
+
+
+Used DCodes :
+    D19
+    D66
+*************************************************************
+
+*************************************************************
+Generating : Drill Guide
+      File : LP0747-01.GG1
+
+    Adding Layer      : Mechanical 6
+
+    Adding Drill Pair : Top Layer-Bottom Layer
+
+    Adding Layer      : Drill Guide
+
+
+Used DCodes :
+    D19
+    D66
+*************************************************************
+

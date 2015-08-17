@@ -1,0 +1,14 @@
+---------------------------------------------------------------------------
+NCDrill File Report For: TE0747.PcbDoc   8/13/2015  11:39:01 AM
+---------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : LP0747-01.TXT
+
+Tool         Hole Size           Hole Type     Hole Count Plated       Tool Travel
+---------------------------------------------------------------------------
+T1        0.1mm (3.937mil)         Round          88               148.46 mm (5.84 Inch)
+---------------------------------------------------------------------------
+Totals                                            88               148.46 mm (5.84 Inch)
+
+Total Processing Time (hh:mm:ss) : 00:00:00
